@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Montserrat Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+
+    <title>Food Delivery App</title>
+    <style>
+        body {
+            padding: 0px;
+            margin: 0px;
+            font-family: "Montserrat", sans-serif;
+        }
+        .navbar {
+            width: 100%;
+            height: 50px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            background-color: #1212121b;
+            border: 1px solid #121212;
+        }
+        .nav-brand {
+            height: 80%;
+            padding: 0px 10px;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: start;
+            align-items: center;
+        }
+        .nav-info {
+            height: 80%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .nav-info > a {
+            padding: 5px 10px;
+            margin: 3px;
+            text-decoration: none;
+            color: #121212;
+        }
+        .nav-signup {
+            height: 80%;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .nav-signup > img , .nav-signup > button {
+            margin: 10px;
+        }
+        .btn-signup {
+            background-color: #12121200;
+            padding: 5px 15px;
+            border: 1px solid #121212;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="nav-brand">
+            <p>Brand</p>
+        </div>
+        <div class="nav-info">
+            <a href="/">Home</a>
+            <a href="/">Menu</a>
+            <a href="/">Contact us</a>
+        </div>
+        <div class="nav-signup">
+            <img src="./assets/icons8-bag-25.png" />
+            <button class="btn-signup">Sign up</button>
+        </div>
+    </div>
+</body>
+</html>
+
