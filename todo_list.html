@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List</title>
+    <style>
+        .list-container {
+            width: 300px;
+            min-height: 200px;
+            background-color: salmon;
+        }
+        .list-item {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+        .list-foot {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="list-container">
+        <div class="list-header">
+            <input type="text" id="task-input"/>
+            <button onclick="addNewTask()">Add task</button>
+        </div>
+        <div class="list-body">
+        </div>
+        <div class="list-foot">
+            <p id="pending-tasks">pendings 0</p>
+            <button onclick="reset()">Clear All</button>
+        </div>
+    </div>
+    <script>
+        const obj = document.getElementById('task-input')
+        const obj1 = document.getElementsByClassName('list-body')[0]
+        const obj4 = document.getElementById('pending-tasks')
+        const tasks = []
+        const state = []
+        let count = 0
+
+        function addNewTask() {
+            tasks.push(obj.value)
+            state.push(false)
+            count++
+            obj4.innerHTML = pending ${count}
+            console.log('task added successfully')
+            render()
+        }
+
+        function deleteTask(index) {
+            tasks.splice(index, 1)
+            state.splice(index, 1)
+            if(count > 0){
+                count--
+                obj4.innerHTML = pending ${count}
+            }
+            render()
+        }
+
+        function reset() {
+            tasks.splice(0, tasks.length)
+            state.splice(0, tasks.length)
+            count = 0
+            obj4.innerHTML = pending ${count}
+            render()
+        }
+
+        function done(obj2, index) {
+            if(obj2.checked){
+                document.getElementById(task-para-${index}).style.textDecoration = 'line-through'
+                if(count > 0) {
+                    count--
+                }
+                state[index] = true
+            }
+            else {
+                document.getElementById(task-para-${index}).style.textDecoration = 'none'
+                count++
+                state[index] = false
+            }
+            obj4.innerHTML = pending ${count}
+            console.log(obj2.checked + " " + index)
+        }
+
+        function render() {
+            let htmlData = ''
+            for(let i = tasks.length-1; i >= 0 ; i--){
+                htmlData += 
+                `<div class="list-item">
+                    <input type="checkbox" onclick="done(this, ${i})" ${ state[i] ? 'checked' : ''}/>
+                    <p id="task-para-${i}" style="text-decoration: ${state[i] ? 'line-through' : 'none'};">${tasks[i]}</p>
+                    <button onclick="deleteTask(${i})">X</button>
+                </div>
+                `
+            }
+            obj1.innerHTML = htmlData
+        }
+
+    </script>
+</body>
+</html>
